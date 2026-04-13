@@ -60,6 +60,13 @@
       user-select: none;
     }
 
+    .steps {
+      font-size: 20px;
+      color: #888;
+      font-variant-numeric: tabular-nums;
+      user-select: none;
+    }
+
     .buttons {
       display: flex;
       flex-direction: column;
@@ -113,6 +120,7 @@
   <div class="container">
     <button class="reset-btn" onclick="reset()">Reset</button>
     <div class="count" id="count">0</div>
+    <div class="steps" id="steps">0 steps</div>
     <div class="buttons">
       <button class="add-btn" onclick="add()">+ 1</button>
       <button class="subtract-btn" onclick="subtract()">- 1</button>
@@ -122,9 +130,12 @@
   <script>
     let count = 0;
     const display = document.getElementById('count');
+    const stepsDisplay = document.getElementById('steps');
 
     function render() {
       display.textContent = count;
+      const steps = count * 200;
+      stepsDisplay.textContent = steps.toLocaleString() + ' steps';
     }
 
     function add() {
